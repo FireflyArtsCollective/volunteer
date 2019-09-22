@@ -38,3 +38,39 @@ You will need to enter pipenv shell as you work, so next time also enter
 ```
 $ pipenv shell
 ```
+
+## Adding Packages/Dependencies
+
+This project uses pipenv to manage dependencies. To add a dependency, do the following:
+
+```
+$ pipenv install PACKAGENAME
+```
+
+Where "PACKAGENAME" Is the name of the package you want to install.
+
+## Project Layout
+
+### Apps
+
+Django projects are divided into "apps", each representing a discrete part of the project. 
+
+Current proposal:
+* users
+* schedule
+
+## Deploying
+
+This is how you deploy our application to openshift.
+
+First you will need to log into open shift. Go to the OpenShift web console, click the name dropdown in the top right, then click "Copy Login Command". On the page it brings you to click "Display Token". Copy and paste the login! 
+
+After you have completed that step, it's time deploy the project
+
+```
+$ oc new
+```
+
+To deploy to openshift, do the following.
+
+
