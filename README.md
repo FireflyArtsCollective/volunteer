@@ -67,10 +67,22 @@ First you will need to log into open shift. Go to the OpenShift web console, cli
 
 After you have completed that step, it's time deploy the project
 
+TODO: Actually figure out and document how to deploy.
+
+## Danimal Notes on Setting up OpenShift
+
+Logged in with the login instructions in the "Deploying" section of this README.
+
+First I needed a postgresql database. So I deployed the docker image openshift3/postgresql-92-rhel7
+
 ```
-$ oc new
+$ docker pull registry.access.redhat.com/openshift3/postgresql-92-rhel7
+$ oc new-app openshift3/postgresql-92-rhel7
+$ oc status
 ```
 
-To deploy to openshift, do the following.
+However if you then check the logs (using the service name from `oc status` and `oc logs`) you will find that it fails because it doesn't have the credentials we need.
 
+I don't want to be balancing juggling around credentials. Perhaps there is an easier way?
 
+I opted not to run the command to "expose to the outside world" because that sounds like a security nightmare. Hopefully our apps can still access it?
